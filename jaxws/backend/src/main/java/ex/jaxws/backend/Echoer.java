@@ -7,7 +7,7 @@ import javax.jws.WebMethod;
 @WebService
 public class Echoer {
 
-    private final String message = Echoer.class.getName() +" echoes: ";
+    private final String message = Echoer.class.getSimpleName() +" echoes: ";
 
     public void Echoer() {
     }

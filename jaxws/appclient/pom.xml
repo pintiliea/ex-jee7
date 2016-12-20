@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ex.jaxws</groupId>
+    <artifactId>appclient</artifactId>
+    <packaging>jar</packaging>
+
+    <properties></properties>
+
+    <parent>
+        <groupId>ex.jaxws</groupId>
+        <artifactId>jaxws-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>ex.jaxws</groupId>
+            <artifactId>endpoint</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <type>app-client</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <!-- <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${maven.exec.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>run-appclient</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>${glassfish.home}/glassfish/bin/appclient${glassfish.executables.suffix}</executable>
+
+                            <arguments>
+                                <argument>-client</argument>
+                                <argument>./target/${project.build.finalName}.jar</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin> -->
+
+        </plugins>
+    </build>
+
+</project>

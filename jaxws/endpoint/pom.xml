@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ex.jaxws</groupId>
+    <artifactId>endpoint</artifactId>
+    <packaging>app-client</packaging>
+
+    <properties></properties>
+
+    <parent>
+        <groupId>ex.jaxws</groupId>
+        <artifactId>jaxws-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.jvnet.jax-ws-commons</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>${jaxws-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlDirectory>${basedir}/../backend/target/generated-sources/wsdl</wsdlDirectory>
+                            <wsdlFiles>
+                                <wsdlFile>EchoerService.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <wsdlLocation>http://localhost:8080/jaxws-backend/Echoer?wsdl</wsdlLocation>
+                            <packageName>ex.jaxws.endpoint</packageName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-acr-plugin</artifactId>
+                <version>${maven.acr.plugin.version}</version>
+                <extensions>true</extensions>
+                <!-- <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>ex.jaxws.client.Client</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration> -->
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
